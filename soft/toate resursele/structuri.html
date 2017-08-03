@@ -1,33 +1,90 @@
 <html>
-    <style>
-        #titlu{
-            border-bottom: 2px solid greenyellow;
-            margin-left: 50px;
-            font-size: 50px;
-            background-color: white;
-        }
-        #null{
-            margin-left: -50px;
-        }
-        #code{
-            width: 80%;
-            height: 200px;
-            background-color: greenyellow;
-            border: 2px solid green;
-            margin-top: 50px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
-    <body>
-        <div id="titlu">
-            <div id="null">STRUCTURILE IMPORTANTE DIN INFORMATICA</div>
+<style>
+    body {
+        padding: 0px;
+        margin: 0px;
+        background-color: #f1f1f1;
+    }
+
+    #titlu {
+        border-bottom: 2px solid #98dbc6;
+        margin-left: 50px;
+        font-size: 50px;
+    }
+
+    #null {
+        margin-left: -25px;
+    }
+
+    #code {
+        width: 80%;
+        height: 200px;
+        background-color: #98dbc6;
+        border: 2px solid #5bc8ac;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #scris {
+        margin-left: 10px;
+        font-size: 30px;
+        float: left;
+        margin-top: 10px;
+    }
+
+    #header {
+        height: 59px;
+        width: 100%;
+        background-color: #5bc8ac;
+        color: white;
+    }
+
+    #logo {
+        height: 100%;
+        width: 59px;
+        background: url('poze/logo.jpg');
+        background-size: 100% 100%;
+        float: left;
+    }
+
+    #title {
+        font-size: 50px;
+        color: white;
+        margin-left: 50px;
+    }
+</style>
+
+<body>
+    <div id="header">
+        <div id="logo">
         </div>
-        <div id="code">
+        <div id="scris">LITTLE CODeRS</div>
+    </div>
+    <div id="titlu">
+        <div id="null">STRUCTURILE IMPORTANTE DIN INFORMATICA</div>
+    </div>
+    <div id="code">
+        <div id="title">Structura liniara</div><br>
+        <div style="font-size: 35px;margin-left: 25px;text-align:center;color:white;">Se executa in ordine instructiunile (secvential) de la prima la ultima. I1→I2→I3→…→In </div>
+    </div>
+    <div id="code">
+        <div id="title">Structura alternativa</div><br>
+        <div style="font-size: 35px;margin-left: 25px;text-align:center;color:white;">Este utilizata atunci cand pe percursul unui program avem nevoie sa testam valorile anumitor variabile, iar in functie
+            de valoarea de adevar a rezultatului sa se execute un set sau altul de instructiuni.</div>
+    </div>
+    <div id="code" style="height: 400px;">
+        <div id=title>Structura repetitiva</div>
+        <div style="font-size: 35px;margin-left: 25px;text-align:center;color:white;">
+            <b>1.	Cu test initial (conditionata anterior) - while</b>.Se foloseste atunci cand se doreste repetarea executiei
+            anumitor instructiuni cat timp conditia de intrare in bucla este falsa.<br>
+            <b>2. Structura repetitiva cu numar definit de pasi - for</b> Se foloseste atunci cand se cunoaste exact de cate
+            ori se repeta o anumita parte a unui program.
+            <b>3. Structura repetitiva cu test final - do....while</b> Se foloseste (ca si structura cu test initial atunci
+            cand se doreste repetarea executiei anumitor instructiuni pana cand conditia de iesire din bucla este adevarata.
         </div>
-        <div id="code">
-        </div>
-        <div id="code">
-        </div>
-    </body>
+    </div>
+    <div style="height: 50px;"></div>
+</body>
+
 </html>
