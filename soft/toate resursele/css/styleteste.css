@@ -1,0 +1,281 @@
+#raspunsme{
+	width: 1200px;
+	height: 30px;	
+	font-size: 25px;
+}
+#cerinta{
+	width: 1300px;
+	height: 200px;
+}
+#nivelul{
+    width: 80%;
+    background-color: rgba(250,250,250,0.8);
+    height: 250px;
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+#nivelul2{
+    width: 80%;
+    background-color: rgba(250,250,250,0.8);
+    height: 40%;
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+#nivelul3{
+    width: 80%;
+    background-color: rgba(250,250,250,0.8);
+    height: 250px;
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+#nivelul4{
+    width: 80%;
+    background-color: rgba(250,250,250,0.8);
+    height: 250px;
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+#nivelul5{
+    width: 80%;
+    background-color: rgba(250,250,250,0.8);
+    height: 250px;
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+#nivelul6{
+    width: 80%;
+    background-color: rgba(250,250,250,0.8);
+    height: 300px;
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+#nivelul7{
+    width: 80%;
+    background-color: rgba(250,250,250,0.8);
+    height: 250px;
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+#nivelul8{
+    width: 80%;
+    background-color: rgba(250,250,250,0.8);
+    height: 250px;
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+#nivelul9{
+    width: 80%;
+    background-color: rgba(250,250,250,0.8);
+    height: 300px;
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+#sld{
+    transition: 0.3s;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    margin-left: -8px;
+    margin-top: -8px;
+}
+#rasp{
+    margin-left: 20px;
+    height: 50px;
+    display:inline-block;
+    margin-top: 20px;
+    cursor:pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+#rasp:hover{
+    background-color: rgba(250,250,250,0.9);
+}
+#vertical-align{
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+}
+#rezult{
+    width: 0%;
+    height: 0%;
+    background-color: rgba(250,250,250,0.7);
+    margin:auto;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    font-size: 30px;
+    z-index: 3;
+    font-size: 80px;
+    text-align: center;
+}
+#verifica{
+    height: 50px;
+    width: 500px;
+    background-color: rgba(250,250,250,0.7);
+    transform: translateY(100%);
+    margin:auto;
+    font-size: 50px;
+    text-align: center;
+    transition: 0.3s;
+    transform-origin: center center;
+    cursor:pointer;
+}
+#verifica:hover{
+    background-color: rgba(250,250,250,1);
+    box-shadow: 0 10px 50px black;
+}
+#calculator{
+    height: 100%;
+    width: 500px;
+    z-index: 1;
+    position: fixed;
+    margin-left: -450px;
+    margin-top: -8px;
+    text-align: center;
+    transition: 0.3s;
+    background-color: rgba(250,250,250,0.5);
+}
+#movement{
+    height: 100%;
+    width: 60px;
+    float:right;
+    top: 0;
+    cursor:pointer;
+}
+#scris{
+    font-size: 60px;
+    float: right;
+    transform-origin: top right;
+    margin-right: 60px;
+    transform: rotateZ(-90deg);
+    width: 100%;
+    height: 60px;
+    margin-top:0px;
+    cursor:pointer;
+    text-align: center;
+}
+#input1,#input2{
+    width: 35%;
+    height: 50px;
+    margin-left: 10px;
+}
+#output{
+    margin-top: 50px;
+    width: 72%;
+    margin-left: 10px;        
+    height: 50px;
+}
+#btn{
+    font-size: 35px;
+    margin-left: 25px;
+    margin-top: 25px;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+#btndel{
+    font-size: 35px;
+    margin-left: 25px;
+    margin-top: 25px;
+    display: inline-block;
+    width: 355px;
+    height: 50px;
+}
+#btno{
+    font-size: 35px;
+    margin-left: 25px;
+    margin-top: 25px;
+    display: inline-block;
+    width: 67px;
+    height: 50px;
+}
+@keyframes bounce{
+    from{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+@media (max-width: 1667px)
+{
+	body{
+		zoom: 90%;
+	}
+}
+@media (max-width: 1567px)
+{
+	body{
+		zoom: 85%;
+	}
+}
+@media (max-width: 1467px)
+{
+	body{
+		zoom: 80%;
+	}
+}
+@media (max-width: 1367px)
+{
+	body{
+		zoom: 75%;
+	}
+}
+@media (max-width: 1267px)
+{
+	body{
+		zoom: 75%;
+	}
+}
+@media (max-width: 1167px)
+{
+	body{
+		zoom: 65%;
+	}
+}
+@media (max-width: 1067px)
+{
+	body{
+		zoom: 50%;
+	}
+}
+@media (max-width: 967px)
+{
+	body{
+		zoom: 55%;
+	}
+}
+@media (max-width: 867px)
+{
+	body{
+		zoom: 50%;
+	}
+}
+@media (max-width: 767px)
+{
+	body{
+		zoom: 65%;
+	}
+}

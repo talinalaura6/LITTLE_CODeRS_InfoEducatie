@@ -1,0 +1,78 @@
+<html>
+    <script>
+        function teorie(){
+            document.getElementById("teorie").style.display = "block";
+            document.getElementById("cod").style.display = "none";
+        }
+        function cod(){
+            document.getElementById("teorie").style.display = "none";
+            document.getElementById("cod").style.display = "block";
+        }
+    </script>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+        }
+        #cover{
+            width: 100%;
+            height: 300px;
+            background-color: red;
+        }
+        #options{
+            border-radius: 10px;
+            transform: translateY(-50%);
+            margin: auto;
+            width: 200px;
+            background-color: green;
+            height: 50px;
+        }
+        #optiune{
+            border-radius: 10px;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            font-size: 25px;
+            height: 100%;
+            width: 49%;
+            background-color: rgba(250,250,250,0.5);
+        }
+        #align{
+            top: 50%;
+            transform: translateY(-50%);
+            position: relative
+        }
+        #teorie{
+            height: 500px;
+            background-color: greenyellow;
+            margin-top: -50px;
+        }
+        #cod{
+            height: 500px;
+            background-color: greenyellow;
+            margin-top: -50px;
+        }
+    </style>
+    <body>
+        <div id="cover">
+        </div>
+        <div id="options">
+            <div id="optiune" onclick="teorie()">
+                <div id="align">
+                    Teorie
+                </div>
+            </div>
+            <div id="optiune" onclick="cod()">
+                <div id="align">
+                    Cod
+                </div>
+            </div>
+        </div>
+        <div id="teorie">
+            teorie
+        </div>
+        <div id="cod">
+            cod
+        </div>
+    </body>
+</html>

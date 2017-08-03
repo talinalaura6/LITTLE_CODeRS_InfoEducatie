@@ -1,0 +1,79 @@
+<html>
+<script>
+    function teorie() {
+        document.getElementById("teorie").style.display = "block";
+        document.getElementById("cod").style.display = "none";
+    }
+    function cod() {
+        document.getElementById("teorie").style.display = "none";
+        document.getElementById("cod").style.display = "block";
+    }
+</script>
+<style>
+    body {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    #header {
+        height: 59px;
+        width: 100%;
+        background-color: #5bc8ac;
+        color: white;
+    }
+
+    #logo {
+        height: 100%;
+        width: 59px;
+        background: url('poze/logo.jpg');
+        background-size: 100% 100%;
+        float: left;
+    }
+
+    #scris {
+        margin-left: 10px;
+        font-size: 30px;
+        float: left;
+        margin-top: 10px;
+    }
+    #algoritm{
+        height: 150px;
+        width: 70%;
+        background-color: #5bc8ac;
+        margin-top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        position: relative;
+        color: white;
+    }
+    #title{
+        font-size: 50px;
+        margin-left: 50px;
+    }
+    #com{
+        margin-top: 20px;
+        margin-left: 250px;
+        font-size: 30px;
+    }
+    #link{
+        width: 200px;
+        
+    }
+</style>
+
+<body>
+    <div id="header">
+        <div id="logo">
+        </div>
+        <div id="scris">LITTLE CODeRS</div>
+    </div>
+    <div id="tot">
+        <div id="algoritm">
+            <div id="title">Algoritmul de interschimbare</div>
+            <div id="com">...un algoritm care schimba valorile...</div>
+            <a href="intersch.html"><div id="link">Vezi lectia</div></a>
+        </div>
+    </div>
+</body>
+
+</html>
