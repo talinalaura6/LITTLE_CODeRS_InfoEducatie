@@ -25,15 +25,15 @@
         var a = document.getElementById("a").value;
         var b = document.getElementById("b").value;
         if (i == 1)
-            mesaj = "aux = " + a;
+            mesaj = "aux = " + a + "\n";
         else
             if (i == 3)
-                mesaj = "a = " + b;
+                mesaj = "a = " + b + "\n";
             else
                 if (i == 5)
-                    mesaj = "b = " + a;
+                    mesaj = "b = " + a + "\n";
         document.getElementById("n" + i).style.color = "red";
-        document.getElementById("textarea").value = mesaj;
+        document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
         if (i > 6)
             {
                 clearInterval(intervalul);
