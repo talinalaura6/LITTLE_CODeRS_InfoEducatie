@@ -1,4 +1,4 @@
-<html>
+﻿<html>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>LITTLE CODeRS | Algoritm de insumare a cifrelor numarului</title>
 <link href="poze/logo.jpg" rel="icon">
@@ -86,6 +86,9 @@
     function reset(){
         document.getElementById("textarea").value = "";
         var j;
+	pas = 1;
+	suma = 0;
+i = 1;
         for (j = 1; j <= 6; j++) {
                 document.getElementById("n" + j).style.color = "black";
             }
@@ -94,6 +97,9 @@
     }
 </script>
 <style>
+	#textarea{
+		font-size: 30px;
+	}
     body {
         background-color: #f1f1f1;
         padding: 0px;
@@ -209,7 +215,7 @@ n &larr; n / 10<br>
     <div id="cod">
         <div id="type">
             <div class="content">
-                Introduceti valoarea pentru:<br><br> n = <input type="text" id="a" style="display: inline-block;"><br><br>
+                Introduceti valoarea pentru:<br><br> n = <input type="number" id="a" style="display: inline-block;"><br><br>
                 <div id="btn" onclick="startTheInterval()">Incepe!</div>
                 <div id = "btn" style="margin-top: 50px;" onclick="reset()">Reset</div>
             </div>
