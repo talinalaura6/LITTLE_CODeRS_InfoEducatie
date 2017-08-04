@@ -2,7 +2,6 @@
 <script>
     window.onload = function () {
         document.getElementById("a").value = "0";
-        document.getElementById("b").value = "0";
     }
     function teorie() {
         document.getElementById("teorie").style.display = "block";
@@ -12,42 +11,114 @@
         document.getElementById("teorie").style.display = "none";
         document.getElementById("cod").style.display = "block";
     }
-    var i = 1;
+    var i = 0;
     var intervalul;
     var mesaj;
+    var inv = 0;
+    var pas = 1;
+    var c;
+    var copie;
     function startTheInterval() {
-        if (document.getElementById("a").value != "0" || document.getElementById("b").value != "0")
+        if (document.getElementById("a").value != "0") {
             intervalul = setInterval(start, 1150);
+            a = document.getElementById("a").value;
+        }
         else
-            alert("Introdu numere de la tastatura!");
+            alert("Introdu numere de la tastatura!");/**/
     }
     function start() {
-        var a = document.getElementById("a").value;
-        var b = document.getElementById("b").value;
-        if (i == 1)
-            mesaj = "aux = " + a;
+        if (i == 0) {
+            document.getElementById("n0").style.color = "red";
+            mesaj = "copie = " + a + '\n';
+            document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+            i++;
+            copie = a;
+        }
+        if (i == 1) {
+            document.getElementById("n1").style.color = "red";
+            mesaj = "inv = " + inv + '\n';
+            document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+            i++;
+        }
         else
-            if (i == 3)
-                mesaj = "a = " + b;
-            else
-                if (i == 5)
-                    mesaj = "b = " + a;
-        document.getElementById("n" + i).style.color = "red";
-        document.getElementById("textarea").value = mesaj;
-        if (i > 6)
-            {
-                clearInterval(intervalul);
-                alert("ok");
+            if (i == 2) {
+                document.getElementById("n" + i).style.color = "blue";
+                mesaj = "Pas " + pas + "." + '\n';
+                document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                i++;
+                pas++;
+            } else
+                if (i == 3) {
+                    document.getElementById("n3").style.color = "red";
+                    mesaj = a + " != 0. Da" + '\n';
+                    document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                    i++;
+                } else
+                    if (i == 4) {
+                        c = a % 10;
+                        document.getElementById("n" + i).style.color = "red";
+                        mesaj = "c = " + c + '\n';
+                        document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                        i++;
+                    }
+                    else
+                        if (i == 5) {
+                            document.getElementById("n" + i).style.color = "red";
+                            inv = inv * 10 + c;
+                            mesaj = "inv = " + inv + '\n';
+                            document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                            i++;
+                        }
+                        else
+                            if (i == 6) {
+                                document.getElementById("n" + i).style.color = "red";
+                                a = Math.floor(a / 10);
+                                mesaj = "n = " + a + '\n';
+                                document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                                i++;
+                            }
+
+        if (i == 7) {
+            i = 2;
+            for (j = 2; j <= 6; j++) {
+                document.getElementById("n" + j).style.color = "black";
             }
-        i++;
+        }
+        if (a <= 0) {
+            clearInterval(intervalul);
+            document.getElementById("n7").style.color = "blue";
+            document.getElementById("n8").style.color = "red";
+            mesaj = inv + "==" + copie;
+            document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+            if (inv == copie) {
+                mesaj = ". Da" + '\n';
+                document.getElementById("n9").style.color = "red";
+                document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj + '\n' + "Este palindrom";
+            }
+            else {
+                mesaj = ". Nu" + '\n';
+                document.getElementById("n10").style.color = "red";
+                document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj + '\n' + "Nu este palindrom";
+            }
+            document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+        }
     }
-    function c(){
+    function c() {
         document.getElementById("c").style.display = "block";
         document.getElementById("p").style.display = "none";
     }
-    function p(){
+    function p() {
         document.getElementById("c").style.display = "none";
         document.getElementById("p").style.display = "block";
+    }
+    function reset(){
+        document.getElementById("textarea").value = "";
+        var j;
+        for (j = 0; j <= 10; j++) {
+                document.getElementById("n" + j).style.color = "black";
+            }
+        document.getElementById("a").value = "";
+        clearInterval(intervalul);
     }
 </script>
 <style>
@@ -102,7 +173,7 @@
 
     #cod {
         display: none;
-        height: 335px;
+        height: 550px;
         background-color: #f1f1f1;
         margin-top: -50px;
     }
@@ -112,6 +183,9 @@
         width: 33%;
         border-left: 2px solid #5bc8ac;
         float: left;
+    }
+    #textarea{
+        font-size: 20px;
     }
 
     .content {
@@ -147,13 +221,14 @@
         </div>
     </div>
     <div id="teorie" style="height: 700px;">
-        <div style="font-size: 30px;margin-top: 150px;width: 90%;left: 50%;transform: translateX(-50%);position: relative;">„Unde-s mulți puterea crește”! Haide să vedem ce număr obținem dacă adunăm toate cifrele. 
-Există o mulțime de obiecte simetrice. Te-ai gândit vreodată la un număr care este simetric? 
-Un număr palindrom este un număr al cărui invers coincide cu numărul inițial. Spre exemplu 123454321 este un palindrom. 
-Urmărește pseudocodul alăturat iar apoi testează și algoritmii în C++ și Pascal. Aceștia utilizează același principiu ca algoritmul pentru inversul unui număr, însă creează inițial o copie a numărului pentru a putea verifica daca aceste corespunde cu oglinditul. 
+        <div style="font-size: 30px;margin-top: 150px;width: 90%;left: 50%;transform: translateX(-50%);position: relative;">„Unde-s mulți puterea crește”! Haide să vedem ce număr obținem dacă adunăm toate cifrele. Există o mulțime de obiecte
+            simetrice. Te-ai gândit vreodată la un număr care este simetric? Un număr palindrom este un număr al cărui invers
+            coincide cu numărul inițial. Spre exemplu 123454321 este un palindrom. Urmărește pseudocodul alăturat iar apoi
+            testează și algoritmii în C++ și Pascal. Aceștia utilizează același principiu ca algoritmul pentru inversul unui
+            număr, însă creează inițial o copie a numărului pentru a putea verifica daca aceste corespunde cu oglinditul.
 
-                    <br><br>
-                    <center>Pseudocod:<br><code>  
+            <br><br>
+            <center>Pseudocod:<br><code>  
 citeste n<br>
 copie &larr; n <br>
 cat timp a &ne;   0 executa<br>
@@ -166,16 +241,15 @@ altfel  scrie ”Numarul nu este palindrom”<br>
 
 
 </code></center>
-                </div>
-            </div>
+        </div>
+    </div>
     </div>
     <div id="cod">
         <div id="type">
             <div class="content">
-                Introduceti valoarea pentru:<br><br> a = <input type="text" id="a" style="display: inline-block;"><br><br>                b =
-                <input type="text" id="b" style="display: inline-block;">
-                <br><br>
+                Introduceti valoarea pentru:<br><br> n = <input type="text" id="a" style="display: inline-block;"><br><br>
                 <div id="btn" onclick="startTheInterval()">Incepe!</div>
+                <div id = "btn" style="margin-top: 50px;" onclick="reset()">Reset</div>
             </div>
         </div>
         <div id="type">
@@ -187,27 +261,53 @@ altfel  scrie ”Numarul nu este palindrom”<br>
                     Pascal
                 </div>
             </div>
-            <div class="content" id="c" style="text-align:center;">
-                <div id="n1" style="display:inline-block;">aux</div> =
-                <div id="n2" style="display:inline-block;">a</div>;<br>
-                <div id="n3" style="display:inline-block;">a</div> =
-                <div id="n4" style="display:inline-block;">b</div>;<br>
-                <div id="n5" style="display:inline-block;">b</div> =
-                <div id="n6" style="display:inline-block;">aux</div>;<br>
+            <div class="content" id="c" style="text-align:left;margin-left: 25px;width: 90%;font-size: 25px;">
+                int n, inv, c, copie;<br> cout
+                <<„n=”; cin>>n;<br>
+                    <div id="n0" style="display:inline-block;">copie = n</div>;<br>
+                    <div id="n1" style="display:inline-block;">inv = 0</div>;<br>
+                    <div id="n2" style="display:inline-block;">while(
+                        <div id="n3" style="display:inline-block;">n != 0</div>)</div><br> { <br>
+                    <div style="margin-left: 20px;" style="display:inline-block;">
+                        <div id="n4" style="display:inline-block;">c=n%10</div>;<br>
+                        <div id="n5" style="display:inline-block;">inv = inv * 10 + c</div>;<br>
+                        <div id="n6" style="display:inline-block;">n = n / 10</div>;<br>
+                    </div>
+                    }<br>
+                    <div id="n7" style="display:inline-block;">if(
+                        <div id="n8" style="display:inline-block;">inv == copie</div>)</div>
+                    <div id="n9" style="display:inline-block;">cout
+                        <<„Numarul este palindrom”;</div><br> else
+                            <br>
+                            <div id="n10" style="display:inline-block;">cout
+                                <<„Numarul nu este palindrom ";<br></div>
+                    </div>
+                    <div class="content " id="p" style="text-align:left;margin-left: 25px;width: 90%;font-size: 25px;display:none; ">
+                                   var n, inv, c, copie;<br>write(‘n=‘); readln(n);<br>
+                                    copie := n;<br>
+                                    inv := 0;<br>
+                                    while(n < > 0) do<br> 
+                                    begin; <br>
+                    <div style="margin-left: 20px; " style="display:inline-block; ">
+                        c:= n mod 10;<br>
+                        inv:=inv*10+c;<br>
+                        n = n / 10;<br>
+                    </div>
+                    end;<br>
+                    if(inv = copie)
+                        writeln(’Numarul este palindrom’);<br>
+                        else<br>
+                        writeln(’Numarul nu este palindrom’);<br>
+                    </div>
+                    
             </div>
-            <div class="content" id="p" style="text-align:center;display:none;">
-                <div class="n1" style="display:inline-block;">aux</div> :=
-                <div class="n2" style="display:inline-block;">a</div>;<br>
-                <div class="n3" style="display:inline-block;">a</div> :=
-                <div class="n4" style="display:inline-block;">b</div>;<br>
-                <div class="n5" style="display:inline-block;">b</div> :=
-                <div class="n6" style="display:inline-block;">aux</div>;<br>
-            </div>
-        </div>
-        <div id="type">
-            <textarea id="textarea" style="resize: none;border: 1px solid blue;width: 90%;height: 90%;left: 50%;top:50%;transform: translate(-50%,-50%);position: relative;"></textarea>
-        </div>
-    </div>
+            <div id="type">
+                    <textarea id="textarea" onclick="return false;" style="resize: none;border: 1px solid blue;width: 90%;height: 90%;left: 50%;top:50%;transform:
+                                    translate(-50%,-50%);position: relative; "></textarea>
+                    </div>
+                    <!--<script>
+                        document.findElementById("textarea").addEventListener("click", function(e){e.preventDefault();});
+                    </script>-->
 </body>
 
 </html>

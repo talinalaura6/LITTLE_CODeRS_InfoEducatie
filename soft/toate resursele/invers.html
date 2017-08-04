@@ -2,7 +2,6 @@
 <script>
     window.onload = function () {
         document.getElementById("a").value = "0";
-        document.getElementById("b").value = "0";
     }
     function teorie() {
         document.getElementById("teorie").style.display = "block";
@@ -17,55 +16,70 @@
     var mesaj;
     var inv = 0;
     var pas = 1;
+    var c;
     function startTheInterval() {
         if (document.getElementById("a").value != "0") {
             intervalul = setInterval(start, 1150);
-            a  = document.getElementById("a").value
+            a = document.getElementById("a").value
         }
         else
             alert("Introdu numere de la tastatura!");
     }
     function start() {
-        a = Math.round(a);
         if (i == 1) {
             document.getElementById("n1").style.color = "red";
-            mesaj = "inv = " + inv;
-            document.getElementById("textarea").value = mesaj;
+            mesaj = "inv = " + inv + '\n';
+            document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
             i++;
         }
         else
             if (i == 2) {
                 document.getElementById("n" + i).style.color = "blue";
-                mesaj = "Pas " + pas + ".";
-                document.getElementById("textarea").value = mesaj;
+                mesaj = "Pas " + pas + "." + '\n';
+                document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
                 i++;
                 pas++;
             } else
                 if (i == 3) {
                     document.getElementById("n3").style.color = "red";
-                    mesaj = a + " != 0.Da";
-                    document.getElementById("textarea").value = mesaj;
+                    mesaj = a + " != 0. Da" + '\n';
+                    document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
                     i++;
                 } else
-                    if (i == 4 || i == 5) {
+                    if (i == 4) {
+                        c = a % 10;
                         document.getElementById("n" + i).style.color = "red";
-                        a = a / 10;
-                        nr = nr * 10 + a%10;
-                        if(i==4)
-                        mesaj = "suma = " + nr;
-                        document.getElementById("textarea").value = mesaj;
+                        mesaj = "c = " + c + '\n';
+                        document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
                         i++;
                     }
-        if (i == 6) {
+                    else
+                        if (i == 5) {
+                            document.getElementById("n" + i).style.color = "red";
+                            inv = inv * 10 + c;
+                            mesaj = "inv = " + inv + '\n';
+                            document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                            i++;
+                        }
+                        else
+                            if (i == 6) {
+                                document.getElementById("n" + i).style.color = "red";
+                                a = Math.floor(a / 10);
+                                mesaj = "n = " + a + '\n';
+                                document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                                i++;
+                            }
+
+        if (i == 7) {
             i = 2;
-            for (j = 2; j <= 5; j++)
+            for (j = 2; j <= 6; j++) {
                 document.getElementById("n" + j).style.color = "black";
+            }
         }
-        if (a < 1) {
+        if (a <= 0) {
             clearInterval(intervalul);
-            document.getElementById("c").style.color = "black";
             document.getElementById("n6").style.color = "red";
-            document.getElementById("textarea").value = "Numarul cifrelor este:" + nr;
+            document.getElementById("textarea").value = document.getElementById("textarea").value + "Inversul este:" + inv;
         }
     }
     function c() {
@@ -76,7 +90,15 @@
         document.getElementById("c").style.display = "none";
         document.getElementById("p").style.display = "block";
     }
-
+    function reset(){
+        document.getElementById("textarea").value = "";
+        var j;
+        for (j = 1; j <= 7; j++) {
+                document.getElementById("n" + j).style.color = "black";
+            }
+        document.getElementById("a").value = "";
+        clearInterval(intervalul);
+    }
 </script>
 <style>
     body {
@@ -84,7 +106,9 @@
         padding: 0px;
         margin: 0px;
     }
-
+    #textarea{
+        font-size: 20px;
+    }
     #cover {
         width: 100%;
         height: 300px;
@@ -201,6 +225,7 @@ scrie inv<br>
             <div class="content">
                 Introduceti valoarea pentru:<br><br> n = <input type="text" id="a" style="display: inline-block;"><br><br>
                 <div id="btn" onclick="startTheInterval()">Incepe!</div>
+                <div id = "btn" style="margin-top: 50px;" onclick="reset()">Reset</div>
             </div>
         </div>
         <div id="type">
@@ -224,15 +249,21 @@ scrie inv<br>
                         <div id="n6" style="display:inline-block;">n = n / 10</div>;<br></div>
                     }<br>
                     <div id="n7" style="display:inline-block;">cout
-                        <<„Inversul=” << inv</div>; <br>
+                        <<„Inversul este:” << inv</div>; <br>
                     </div>
-                    <div class="content" id="p" style="text-align:center;display:none;">
-                        <div class="n1" style="display:inline-block;">aux</div> :=
-                        <div class="n2" style="display:inline-block;">a</div>;<br>
-                        <div class="n3" style="display:inline-block;">a</div> :=
-                        <div class="n4" style="display:inline-block;">b</div>;<br>
-                        <div class="n5" style="display:inline-block;">b</div> :=
-                        <div class="n6" style="display:inline-block;">aux</div>;<br>
+                    <div class="content" id="p" style="text-align:left;margin-left: 25px;width: 90%;display:none;">
+                        var n, inv, c:integer;<br>write(‘n=’); readln(n);
+                        <br>
+                        <div id="n1" style="display:inline-block;">inv = 0</div>;<br>
+                        <div id="n2" style="display:inline-block;">while(
+                            <div id="n3" style="display:inline-block;">n
+                                < > 0</div>) do</div><br> begin <br>
+                        <div style="margin-left: 20px;" style="display:inline-block;">
+                            <div id="n4" style="display:inline-block;">c:= n mod 10</div>;<br>
+                            <div id="n5" style="display:inline-block;">inv:=inv*10 +c</div>;<br>
+                            <div id="n6" style="display:inline-block;">n = n / 10</div>;<br></div>
+                        end;<br>
+                        <div id="n7" style="display:inline-block;">writeln(‘Inversul =’,inv)</div>; <br>
                     </div>
             </div>
             <div id="type">

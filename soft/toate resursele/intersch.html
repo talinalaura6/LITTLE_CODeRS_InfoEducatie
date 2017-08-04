@@ -37,7 +37,6 @@
         if (i > 6)
             {
                 clearInterval(intervalul);
-                alert("ok");
             }
         i++;
     }
@@ -48,6 +47,16 @@
     function p(){
         document.getElementById("c").style.display = "none";
         document.getElementById("p").style.display = "block";
+    }
+    function reset(){
+        document.getElementById("textarea").value = "";
+        var j;
+        for (j = 1; j <= 6; j++) {
+                document.getElementById("n" + j).style.color = "black";
+            }
+        document.getElementById("a").value = "";
+        document.getElementById("b").value = "";
+        clearInterval(intervalul);
     }
 </script>
 <style>
@@ -64,7 +73,9 @@
         background-size: 100% 130%;
         overflow: hidden;
     }
-
+    #textarea{
+        font-size: 20px;
+    }
     #options {
         border-radius: 10px;
         transform: translateY(-50%);
@@ -73,7 +84,6 @@
         background-color: #98dbc6;
         height: 50px;
     }
-
     #optiune {
         border-radius: 10px;
         cursor: pointer;
@@ -102,7 +112,7 @@
 
     #cod {
         display: none;
-        height: 335px;
+        height: 450px;
         background-color: #f1f1f1;
         margin-top: -50px;
     }
@@ -164,6 +174,7 @@ sfârșit <br>
                 <input type="text" id="b" style="display: inline-block;">
                 <br><br>
                 <div id="btn" onclick="startTheInterval()">Incepe!</div>
+                <div id = "btn" style="margin-top: 50px;" onclick="reset()">Reset</div>
             </div>
         </div>
         <div id="type">

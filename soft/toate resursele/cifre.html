@@ -20,7 +20,7 @@
     function startTheInterval() {
         if (document.getElementById("a").value != "0") {
             intervalul = setInterval(start, 1150);
-            a  = document.getElementById("a").value
+            a = document.getElementById("a").value
         }
         else
             alert("Introdu numere de la tastatura!");
@@ -51,10 +51,10 @@
                 } else
                     if (i == 4 || i == 5) {
                         document.getElementById("n" + i).style.color = "red";
-                        if (i==4)
-                        mesaj = "numar = " + nr + '\n';
+                        if (i == 4)
+                            mesaj = "numar = " + nr + '\n';
                         else
-                        mesaj = "n = " + a + '\n';
+                            mesaj = "n = " + a + '\n';
                         document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
                         i++;
                     }
@@ -78,9 +78,20 @@
         document.getElementById("c").style.display = "none";
         document.getElementById("p").style.display = "block";
     }
-
+    function reset(){
+        document.getElementById("textarea").value = "";
+        var j;
+        for (j = 1; j <= 6; j++) {
+                document.getElementById("n" + j).style.color = "black";
+            }
+        document.getElementById("a").value = "";
+        clearInterval(intervalul);
+    }
 </script>
 <style>
+    #textarea{
+        font-size: 20px;
+    }
     body {
         padding: 0px;
         margin: 0px;
@@ -131,7 +142,7 @@
     }
 
     #cod {
-        display:none;
+        display: none;
         height: 600px;
         background-color: #f1f1f1;
         margin-top: -50px;
@@ -177,15 +188,15 @@
         </div>
     </div>
     <div id="teorie">
-            <div>
-                <div style="font-size: 30px;margin-top: 150px;width: 90%;left: 50%;transform: translateX(-50%);position: relative;">Uneori nu este esențial să cunoaștem numărul de cifre al unei serii, însă în unele cazuri acest lucru este
-                    foarte important. Un număr de telefon este format din 10 cifre, CNP-ul este format din 13 cifre și deși
-                    pare că acest algoritm este inutil, el este foarte important atunci când avem nevoie să verificăm dacă
-                    datele dintr-un câmp au fost completate corect. Algoritmul este unul de prelucrare a cifrelor unui număr.
-                    Fiecare cifră eliminată din număr va fi numărată până când numărul va deveni zero în urma împărțirilor
-                    ( ce păstrează doar câtul ) numărate.
-                    <br><br>
-                    <center>Pseudocod:<br><code>  
+        <div>
+            <div style="font-size: 30px;margin-top: 150px;width: 90%;left: 50%;transform: translateX(-50%);position: relative;">Uneori nu este esențial să cunoaștem numărul de cifre al unei serii, însă în unele cazuri acest lucru este foarte
+                important. Un număr de telefon este format din 10 cifre, CNP-ul este format din 13 cifre și deși pare că
+                acest algoritm este inutil, el este foarte important atunci când avem nevoie să verificăm dacă datele dintr-un
+                câmp au fost completate corect. Algoritmul este unul de prelucrare a cifrelor unui număr. Fiecare cifră eliminată
+                din număr va fi numărată până când numărul va deveni zero în urma împărțirilor ( ce păstrează doar câtul
+                ) numărate.
+                <br><br>
+                <center>Pseudocod:<br><code>  
 citeste n<br>
 numar = 0<br>
 cat timp n &larr; 0 executa<br>
@@ -193,52 +204,59 @@ numar &larr; numar +1;<br>
 n &larr; n / 10<br>
 scrie numar<br>
 </code></center>
-                </div>
             </div>
         </div>
-        <div id="cod">
-            <div id="type">
-                <div class="content">
-                    Introduceti valoarea pentru:<br><br> n = <input type="text" id="a" style="display: inline-block;"><br><br>
-                    <div id="btn" onclick="startTheInterval()">Incepe!</div>
+    </div>
+    <div id="cod">
+        <div id="type">
+            <div class="content">
+                Introduceti valoarea pentru:<br><br> n = <input type="text" id="a" style="display: inline-block;"><br><br>
+                <div id="btn" onclick="startTheInterval()">Incepe!</div>
+                <div id = "btn" style="margin-top: 50px;" onclick="reset()">Reset</div>
+            </div>
+        </div>
+        <div id="type">
+            <div id="options" style="margin-top: 50px;background-color: #98dbc6;width: 100%;height:30px;border-radius:0px;">
+                <div id="optiune" onclick="c()">
+                    C++
+                </div>
+                <div id="optiune" onclick="p()">
+                    Pascal
                 </div>
             </div>
-            <div id="type">
-                <div id="options" style="margin-top: 50px;background-color: #98dbc6;width: 100%;height:30px;border-radius:0px;">
-                    <div id="optiune" onclick="c()">
-                        C++
-                    </div>
-                    <div id="optiune" onclick="p()">
-                        Pascal
-                    </div>
-                </div>
-                <div class="content" id="c" style="text-align:left;width: 80%;">
-                    int n, numar;<br>
-                    <div id="n1" style="display: inline-block;">numar = 0; </div><br> cout
-                    <<„n=”; cin>>n;<br>
-                        <div class="resetIt">
-                            <div id="n2" style="display: inline-block;">while (
-                                <div id="n3" style="display: inline-block;">n!=0</div>)</div><br> {
-                            <br>
-                            <div id="n4" style="display: inline-block;margin-left: 40px;">numar = numar + 1; </div><br>
-                            <div id="n5" style="display: inline-block;margin-left: 40px;">n=n/10;</div><br></div>
-                        }
+            <div class="content" id="c" style="text-align:left;width: 80%;">
+                int n, numar;<br>
+                <div id="n1" style="display: inline-block;">numar = 0; </div><br> cout
+                <<„n=”; cin>>n;<br>
+                    <div class="resetIt">
+                        <div id="n2" style="display: inline-block;">while (
+                            <div id="n3" style="display: inline-block;">n!=0</div>)</div><br> {
                         <br>
-                        <div id="n6" style="display: inline-block;">cout
-                            <<„Numarul cifrelor este ” << numar;</div><br>
-                        </div>
-                        <div class="content" id="p" style="text-align:center;display:none;">
-                            <div class="n1" style="display:inline-block;">aux</div> :=
-                            <div class="n2" style="display:inline-block;">a</div>;<br>
-                            <div class="n3" style="display:inline-block;">a</div> :=
-                            <div class="n4" style="display:inline-block;">b</div>;<br>
-                            <div class="n5" style="display:inline-block;">b</div> :=
-                            <div class="n6" style="display:inline-block;">aux</div>;<br>
-                        </div>
-                </div>
-                <div id="type">
-                    <textarea id="textarea" style="resize: none;border: 1px solid blue;width: 90%;height: 90%;left: 50%;top:50%;transform: translate(-50%,-50%);position: relative;"></textarea>
-                </div>
+                        <div id="n4" style="display: inline-block;margin-left: 40px;">numar = numar + 1; </div><br>
+                        <div id="n5" style="display: inline-block;margin-left: 40px;">n=n/10;</div><br></div>
+                    }
+                    <br>
+                    <div id="n6" style="display: inline-block;">cout
+                        <<„Numarul cifrelor este ” << numar;<br>
+                    </div>
+            </div>
+                    <div class="content" id="p" style="text-align:left;width: 80%;display:none;">
+                        var  n,numar: integer;<br>
+                        <div id="n1" style="display: inline-block;">numar:=0;</div><br>write(’n=’); readln(n);<br>
+                            <div class="resetIt">
+                                <div id="n2" style="display: inline-block;">while (
+                                    <div id="n3" style="display: inline-block;">n< >0</div>) do</div><br>begin
+                                <br>
+                                <div id="n4" style="display: inline-block;margin-left: 40px;">numar:=numar+1; </div><br>
+                                <div id="n5" style="display: inline-block;margin-left: 40px;">n=n/10;</div><br></div>
+                            }
+                            <br>
+                            <div id="n6" style="display: inline-block;">end;</div><br>
+                            </div>
+                    </div>
+                    <div id="type">
+                        <textarea id="textarea" style="resize: none;border: 1px solid blue;width: 90%;height: 90%;left: 50%;top:50%;transform: translate(-50%,-50%);position: relative;"></textarea>
+                    </div>
             </div>
 </body>
 

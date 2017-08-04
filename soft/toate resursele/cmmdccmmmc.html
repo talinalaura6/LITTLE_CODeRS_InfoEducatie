@@ -15,31 +15,68 @@
     var i = 1;
     var intervalul;
     var mesaj;
+    var pas = 1;
+    var c;
+    var copie;
     function startTheInterval() {
-        if (document.getElementById("a").value != "0" || document.getElementById("b").value != "0")
+        if (document.getElementById("a").value != "0" || document.getElementById("b").value != "0") {
             intervalul = setInterval(start, 1150);
+            a = document.getElementById("a").value;
+            b = document.getElementById("b").value;
+            alert("ok");
+        }
         else
-            alert("Introdu numere de la tastatura!");
+            alert("Introdu numere de la tastatura!");/**/
     }
     function start() {
-        var a = document.getElementById("a").value;
-        var b = document.getElementById("b").value;
-        if (i == 1)
-            mesaj = "aux = " + a;
-        else
-            if (i == 3)
-                mesaj = "a = " + b;
-            else
-                if (i == 5)
-                    mesaj = "b = " + a;
-        document.getElementById("n" + i).style.color = "red";
-        document.getElementById("textarea").value = mesaj;
-        if (i > 6)
-            {
-                clearInterval(intervalul);
-                alert("ok");
+            if (i == 1) {
+                document.getElementById("n" + i).style.color = "blue";
+                mesaj = "Pas " + pas + "." + '\n';
+                document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                i++;
+                pas++;
+            } else
+                if (i == 2) {
+                    document.getElementById("n3").style.color = "red";
+                    mesaj = a + " != " + b + ". Da" + '\n';
+                    document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                    i++;
+                } else
+                    if (i == 3) {
+                        mesaj = a + " > " + b + "?";
+                        document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                        if(a > b)
+                        {
+                          document.getElementById("n4").style.color = "red";
+                          mesaj = " Da" + '\n';
+                          document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                          a = a - b;
+                          mesaj = "a = " + a + '\n';
+                          document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                          i++;
+                        }
+                        else {
+                          document.getElementById("n4").style.color = "red";
+                          mesaj = " Nu" + '\n';
+                          document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                          b = b - a;
+                          mesaj = "b = " + b + '\n';
+                          document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+                          i++;
+                        }
+                      }
+        if (i == 5) {
+            i = 1;
+            for (j = 2; j <= 5; j++) {
+                document.getElementById("n" + j).style.color = "black";
             }
-        i++;
+        }
+        if (a == b) {
+            clearInterval(intervalul);
+            document.getElementById("n6").style.color = "red";
+            mesaj = "CMMDC" + a;
+            document.getElementById("textarea").value = document.getElementById("textarea").value + mesaj;
+        }
     }
     function c(){
         document.getElementById("c").style.display = "block";
@@ -102,7 +139,7 @@
 
     #cod {
         display: none;
-        height: 335px;
+        height: 500px;
         background-color: #f1f1f1;
         margin-top: -50px;
     }
@@ -147,14 +184,14 @@
         </div>
     </div>
     <div id="teorie">
-         <div style="font-size: 30px;margin-top: 150px;width: 90%;left: 50%;transform: translateX(-50%);position: relative;">„Unde-s mulți puterea crește”! Haide să vedem ce număr obținem dacă adunăm toate cifrele. 
-Heeei! Haide să învățăm câte ceva despre cel mai mic divizor comun și cel mai mare multiplu comun al două numere. 
+         <div style="font-size: 30px;margin-top: 150px;width: 90%;left: 50%;transform: translateX(-50%);position: relative;">„Unde-s mulți puterea crește”! Haide să vedem ce număr obținem dacă adunăm toate cifrele.
+Heeei! Haide să învățăm câte ceva despre cel mai mic divizor comun și cel mai mare multiplu comun al două numere.
 Cel mai mare divizor comun (c.m.m.d.c.) pentru 2 sau mai multe numere naturale nenule este cel mai mare numar natural care divide toate numerele date.
 Cel mai mic multiplu comun (c.m.m.m.c.) pentru 2 sau mai multe numere naturale nenule este cel mai mic numar natural care se divide cu toate numerele date.
-Algoritmii pe care îi vei descoperi vor determina c.m.m.d.c. și c.m.m.m.c al două numere introduse de la tastatură în câmpul din stanga. Aceștia vor folosi tehnica scaderilor succesive, astfel încât se scade din cel mai mare număr cel mai mic număr până  cele două numere( a și b) vor deveni egale, rezultatul final reprezentând c.m.m.d.c.. C.m.m.m.c. se obține împărțind produsul celor două numere inițiale la c.m.m.d.c. 
+Algoritmii pe care îi vei descoperi vor determina c.m.m.d.c. și c.m.m.m.c al două numere introduse de la tastatură în câmpul din stanga. Aceștia vor folosi tehnica scaderilor succesive, astfel încât se scade din cel mai mare număr cel mai mic număr până  cele două numere( a și b) vor deveni egale, rezultatul final reprezentând c.m.m.d.c.. C.m.m.m.c. se obține împărțind produsul celor două numere inițiale la c.m.m.d.c.
 
                     <br><br>
-                    <center>Pseudocod CMMDC:<br><code>  
+                    <center>Pseudocod CMMDC:<br><code>
 start<br>
 citeste a,b<br>
 cat timp a &ne;   b executa<br>
@@ -168,7 +205,7 @@ stop <br>
 
 
 </code></center><br><br>
-                    <center>Pseudocod CMMMC:<br><code>  
+                    <center>Pseudocod CMMMC:<br><code>
 citeste x ,y<br>
 a&larr; x;  b&larr; y;<br>
 cat timp x &ne;  y executa<br>
@@ -204,21 +241,28 @@ stop<br>
                     Pascal
                 </div>
             </div>
-            <div class="content" id="c" style="text-align:center;">
-                <div id="n1" style="display:inline-block;">aux</div> =
-                <div id="n2" style="display:inline-block;">a</div>;<br>
-                <div id="n3" style="display:inline-block;">a</div> =
-                <div id="n4" style="display:inline-block;">b</div>;<br>
-                <div id="n5" style="display:inline-block;">b</div> =
-                <div id="n6" style="display:inline-block;">aux</div>;<br>
+            <div class="content" id="c" style="text-align:left;margin-left:25px;width: 90%;">
+              int a,b;<br>
+              cin>>a>>b;<br>
+              <div id  = "n1" style="display:inline-block;"> while(<div id = "n2" style="display:inline-block;">a != b</div>)</div><br>
+              <div style="margin-left: 25px;" style="display:inline-block;">if(<div id="n3" style="display:inline-block;">a > b</div>)<br>
+              <div id="n4" style="margin-left:25px;" style="display:inline-block;">a = a - b;</div>
+              else<br>
+              <div id="n5" style="margin-left:25px;" style="display:inline-block;">b = b - a;</div>
+            </div><br>
+            <div id="n6" style="margin-top:-25px;" style="display:inline-block;">cout<<„CMMDC=”<< a;</div><br>
             </div>
-            <div class="content" id="p" style="text-align:center;display:none;">
-                <div class="n1" style="display:inline-block;">aux</div> :=
-                <div class="n2" style="display:inline-block;">a</div>;<br>
-                <div class="n3" style="display:inline-block;">a</div> :=
-                <div class="n4" style="display:inline-block;">b</div>;<br>
-                <div class="n5" style="display:inline-block;">b</div> :=
-                <div class="n6" style="display:inline-block;">aux</div>;<br>
+            <div class="content" id="p" style="text-align:left;margin-left:25px;width: 90%;display:none;">
+              int a,b,x,y;<br>
+              cin>>x>>y;<br>
+              <div id="n0">a=x; b=y;</div>
+              <div id  = "n1" style="display:inline-block;"> while(<div id = "n2" style="display:inline-block;">x != y</div>)</div><br>
+              <div style="margin-left: 25px;" style="display:inline-block;">if(<div id="n3" style="display:inline-block;">x > y</div>)<br>
+              <div id="n4" style="margin-left:25px;" style="display:inline-block;">x = x - y;</div>
+              else<br>
+              <div id="n5" style="margin-left:25px;" style="display:inline-block;">y = y - x;</div>
+            </div><br>
+            <div style="margin-top:-25px;" style="display:inline-block;">cout<<„CMMMC=”<< (a*b)/x;</div><br>
             </div>
         </div>
         <div id="type">
