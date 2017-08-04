@@ -59,4 +59,5 @@ function verif(){
                 var text = "Felicitari! Se vede ca ai studiat!";
     var not = document.getElementById("text").innerHTML = text;
     var not2 = document.getElementById("nota").innerHTML = score;
+	document.getElementById("note").value = score;
 }

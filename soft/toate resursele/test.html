@@ -1,4 +1,5 @@
 ﻿<html>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>LITTLE CODeRS | Test algoritmi fundamentali</title>
 <link href="poze/logo.jpg" rel="icon">
@@ -8,7 +9,7 @@
 <script src="verificare.js"></script>
 <meta name="viewport" content="width = device-width, initial-scale= 1.0">
 
-<body  style="background-color: #5bc8ac;">
+<body style="background-color: #5bc8ac;">
     <img src="poze/learn.png" style="position:fixed;float: left;">
     <img src="poze/pc.png" style="position:fixed;margin-left: 95%;transform: translateX(-100%);margin-top: 33%;width: 250px;height: 200px;">
     <div id="sld">
@@ -156,6 +157,11 @@
             <div id="vertical-align">
                 <div id="text"></div>
                 <div id="nota"></div>
+                <form action="download.php" method="POST">
+                    <input type="text" name="nota" id="note" style="display:none;">
+                    <input type="text" placeholder="Numele elevului" name="nume" style="width: 500px;height: 40px;font-size: 30px;" required ><br><br>
+                    <input type="submit">
+                </form>
             </div>
         </div>
         <div style="height: 50px;"></div>
