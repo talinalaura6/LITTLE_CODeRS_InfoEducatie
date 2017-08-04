@@ -3,14 +3,23 @@
 <title>LITTLE CODeRS</title>
 <link href="toate resursele/poze/logo.jpg" rel="icon">
 <link href="toate resursele/css/style.css" rel="stylesheet">
+<link href="toate resursele/css/responsive.css" rel="stylesheet">
 <meta name="viewport" content="width = device-width, initial-scale= 1.0">
-
-<body style="background: url('toate resursele/pose/new-york-wallpaper-12.jpg'); background-size: 100% 100%;">
+<script>
+	window.setInterval(move, 10);
+	var i = null;
+    function move() {
+        var bg = document.getElementById("background");
+        bg.style.backgroundPosition = i + "px";
+        i--;
+    }
+</script>
+<body style="margin:0px;padding:0px;">
 	</div>
 	<div class="titlu">
 		<div style="width: 90%;height: 300px;">
-			<div style="display: inline-block;background: url('toate resursele/poze/logo.jpg');background-size: 100% 105%;overflow:hidden;width: 200px;height:200px;"></div>
-			<div style="color: #5bc8ac;display: inline-block;width: fit-content;">LITTLE <br>CODeRS</div>
+			<div style="display: inline-block;background: url('toate resursele/poze/logo.jpg');background-size: 100% 105%;overflow:hidden;width: 170px;height:200px;"></div>
+			<div style="color: #5bc8ac;text-shadow: 5px 5px 10px black; display: inline-block;width: fit-content;">LITTLE <br>CODeRS</div>
 		</div>
 	</div>
 	<div class="toate">
@@ -33,6 +42,7 @@
 		</div>
 	</div>
 	<!--<video src="toate resursele/film bg.mp4" id="vid" autoplay="true" loop="loop" />-->
+	<div id="background" style="background: url('toate resursele/poze/bg.jpg'); background-size: 100% 100%; background-repeat: repeat-x;width: 100%;height:100%;">
 </body>
 
 </html>

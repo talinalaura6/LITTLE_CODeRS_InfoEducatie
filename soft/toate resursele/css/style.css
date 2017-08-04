@@ -5,7 +5,7 @@ body{
 }
 .toate {
 position: fixed;
-margin-top: 30%;
+margin-top: 35%;
 width: 100%;
 }
 #vid{
@@ -28,7 +28,7 @@ a
 	text-decoration: none;
 }
 .scris {
-background-color: #98dbc6;
+background-color: #3f7b68;
 width: 300px;
 height: 37px;
 float: left;
@@ -53,65 +53,5 @@ font-size: 100px;
 color: #ffffff;
 width: 900px;
 height: 75px;
-margin-top: 8%;
-}
-@media (max-width: 1667px)
-{
-	body{
-		zoom: 90%;
-	}
-}
-@media (max-width: 1567px)
-{
-	body{
-		zoom: 85%;
-	}
-}
-@media (max-width: 1467px)
-{
-	body{
-		zoom: 80%;
-	}
-}
-@media (max-width: 1367px)
-{
-	body{
-		zoom: 75%;
-	}
-}
-@media (max-width: 1267px)
-{
-	body{
-		zoom: 70%;
-	}
-}
-@media (max-width: 1167px)
-{
-	body{
-		zoom: 65%;
-	}
-}
-@media (max-width: 1067px)
-{
-	body{
-		zoom: 57%;
-	}
-}
-@media (max-width: 967px)
-{
-	body{
-		zoom: 55%;
-	}
-}
-@media (max-width: 867px)
-{
-	body{
-		zoom: 50%;
-	}
-}
-@media (max-width: 767px)
-{
-	body{
-		zoom: 45%;
-	}
+margin-top: 11%;
 }
